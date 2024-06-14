@@ -86,10 +86,10 @@ $description = 'Online Examination Result  Management System (ERMS)-SLGTI';
                                                         <div class='input-group-sm  sm-3 '>
                                                             <div class='input-group-prepend'>
                                                                 <!-- <label class='input-group-text' for='inputGroupSelect01'>Department</label> -->
-                                                                <label for='exampleInputEmail1'>Department</label>
+                                                                <label for='exampleInputEmail1'>Class</label>
                                                             </div>
                                                             <select class='custom-select' id='inputGroupSelect01' id='validationServer02' required name='department'>
-                                                                <option disabled value="">Choose Department</option>
+                                                                <option disabled value="">Choose Class</option>
                                                                 <?php
                                                                 $result = $con->query("SELECT `dname` FROM `departments`");
                                                                 while ($row = $result->fetch_assoc()) {
@@ -109,7 +109,7 @@ $description = 'Online Examination Result  Management System (ERMS)-SLGTI';
                                                         <div class='input-group-sm  mb-3'>
                                                             <div class='input-group-prepend'>
                                                                 <!-- <label class='input-group-text' for='inputGroupSelect01'>Course</label> -->
-                                                                <label for='exampleInputEmail1'>Course</label>
+                                                                <label for='exampleInputEmail1'>Subject</label>
                                                             </div>
                                                             <select class='custom-select' id='inputGroupSelect01' id='validationServer03' required name='course'>
 
@@ -168,13 +168,13 @@ $description = 'Online Examination Result  Management System (ERMS)-SLGTI';
                                                         <div class='input-group-sm  mb-3 '>
                                                             <div class='input-group-prepend '>
                                                                 <!-- <label class='input-group-text' for='inputGroupSelect01'>Module</label> -->
-                                                                <label for='exampleInputEmail1'>Semester</label>
+                                                                <label for='exampleInputEmail1'>Term</label>
                                                             </div>
                                                             <select class='custom-select' id='inputGroupSelect01' id='validationServer05' required name='semester'>
-                                                                <option value=''>Select Semester</option>
-                                                                <option value='1 st'>1 st semester</option>
-                                                                <option value='2 nd'>2 nd semester</option>
-                                                                <option value='3 rd'>3 rd semester</option>
+                                                                <option value=''>Select Term</option>
+                                                                <option value='1 st'>1 st term</option>
+                                                                <option value='2 nd'>2 nd term</option>
+                                                                <option value='3 rd'>3 rd term</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -384,19 +384,17 @@ $description = 'Online Examination Result  Management System (ERMS)-SLGTI';
                                     <td> ', $row['module'], '<span class = "badge badge-dark">', $row['exam_type'], '</span></td>
                                     <td> ', $row['date'], '</td>
                                     <td class="btn-group "role="group" > 
-<<<<<<< HEAD
                                     <a href="edit_exam.php?edit=', $row['exam_id'], '" class = "btn btn-warning btn-group btn btn-sm " >   
                                     Edit
                                      </a>
                                     <a class = "btn btn-danger btn-group btn btn-sm " href="?delete=', $row['exam_id'], '"> Delete </a>
                                     <a class = "btn btn-info btn-group btn btn-sm " href="exams_results.php?view=', $row['exam_id'], '"> View </a>
-=======
+
                                     <a href="?View=', $row['exam_id'], '" class = "btn btn-warning btn-group btn btn-sm " >   
                                     View
                                      </a>
                                     <a class = "btn btn-danger btn-group btn btn-sm " href="?delete=', $row['exam_id'], '"> Delete </a>
                                     <a class = "btn btn-info btn-group btn btn-sm " href="exams_results.php?Results=', $row['exam_id'], '"> Results </a>
->>>>>>> c84cec3e03d088aaed735bc83c114dc4fdaedd2f
                                     </td>
                                     </tr>';
                                                 }

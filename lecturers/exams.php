@@ -113,10 +113,10 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                         <div class='input-group-sm  sm-3 '>
                                                             <div class='input-group-prepend'>
                                                                 <!-- <label class='input-group-text' for='inputGroupSelect01'>Department</label> -->
-                                                                <label for='exampleInputEmail1'>Department</label>
+                                                                <label for='exampleInputEmail1'>Class</label>
                                                             </div>
                                                             <select name="department" id="department" class="form-control action" required id='inputGroupSelect01' id='validationServer01'>
-                                                                <option disabled value="">Choose Department</option>
+                                                                <option disabled value="">Choose Class</option>
                                                                 <?php echo $country; ?>
                                                             </select>
                                                         </div>
@@ -126,10 +126,10 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                         <div class='input-group-sm  mb-3'>
                                                             <div class='input-group-prepend'>
                                                                 <!-- <label class='input-group-text' for='inputGroupSelect01'>Course</label> -->
-                                                                <label for='exampleInputEmail1'>Course</label>
+                                                                <label for='exampleInputEmail1'>Subject</label>
                                                             </div>
                                                             <select name="course" id="course" class="form-control action" required id='inputGroupSelect01' id='validationServer01'>
-                                                                <!-- <option value="">Select course</option> -->
+                                                                
                                                                
                                                             </select>
                                                         </div>
@@ -145,7 +145,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                                 <!-- <label class='input-group-text' for='inputGroupSelect01'>Semester</label> -->
                                                                 <label for='exampleInputEmail1'>Module</label>
                                                             </div>
-                                                            <select name="module" id="module" class="form-control action" required id='inputGroupSelect01' id='validationServer01'>
+                                                            <select name="module" id="module" class="form-control action"  id='inputGroupSelect01' required id='validationServer01'>
                                                                 <option disabled value="">Select module</option>
                                                             </select>
                                                         </div>
@@ -155,10 +155,10 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                         <div class='input-group-sm  mb-3 '>
                                                             <div class='input-group-prepend '>
                                                                 <!-- <label class='input-group-text' for='inputGroupSelect01'>Module</label> -->
-                                                                <label for='exampleInputEmail1'>Semester</label>
+                                                                <label for='exampleInputEmail1'>Term</label>
                                                             </div>
-                                                            <select name="semester" id="semester" class="form-control action" required id='inputGroupSelect01' id='validationServer01'>
-                                                                <option disabled value="">Select Semester</option>
+                                                            <select name="semester" id="semester" class="form-control action"  id='inputGroupSelect01' required id='validationServer01'>
+                                                                <option disabled value="">Select Term</option>
 
                                                                 <!-- <option value='Semester 01'>Semester 01</option>
                                                                 <option value='Semester 02'>Semester 02</option> -->
@@ -171,7 +171,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                                 <!-- <label class='input-group-text' for='inputGroupSelect01'>Type</label> -->
                                                                 <label for='exampleInputEmail1'>Batch</label>
                                                             </div>
-                                                            <select name="batch" id="batch" class="form-control action" required id='inputGroupSelect01' id='validationServer01'>
+                                                            <select name="batch" required id="batch" class="form-control action"  id='inputGroupSelect01' id='validationServer01'>
                                                                 <option disabled value=''>Select Batch</option>
                                                             </select>
                                                         </div>
@@ -282,11 +282,11 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                         <thead class='table-active text-dark'>
                                             <tr>
                                                 <th scope='col'>NO</th>
-                                                <th scope='col'>Exams</th>
-                                                <th scope='col'>DEPARTMENT</th>
-                                                <th scope='col'>COURSE</th>
+                                                <th scope='col'>EXAMS</th>
+                                                <th scope='col'>CLASS</th>
+                                                <th scope='col'>SUBJECT</th>
                                                 <th scope='col'>MODULE</th>
-                                                <th scope='col'>SEMESTER</th>
+                                                <th scope='col'>TERM</th>
                                                 <th scope='col'>BATCH</th>
                                                 <th scope='col'>DATE</th>
                                                 <th scope='col'>ACTIONS</th>
@@ -432,7 +432,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
     if (isset($_POST["action"])) {
         $output = '';
         if ($_POST["action"] == "course") {
-            $query = "SELECT `batches`.`batch_no` FROM `batches` LEFT JOIN `courses` ON `batches`.`NVQ_level` = `courses`.`NVQ_level` AND 
+            $query = "SELECT `batches`.`batch_no` FROM `batches` LEFT JOIN `courses` ON `batches`.`NVQ_Level` = `courses`.`NVQ_Level` AND 
             `batches`.`department_code` = `courses`.`department_code` WHERE `courses`.`code`='" . $_POST["query"] . "'";
             $result = mysqli_query($con, $query);
             $output .= '<option value="" disabled selected>Choose Batch</option>';
