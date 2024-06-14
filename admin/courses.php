@@ -114,8 +114,8 @@ $description = "Online Examination Result  Management System";
             <div class="col"></div>
             <div class="col-auto">
             <div class="btn-group btn-sm" role="group" aria-label="Basic example">
-            <a href="course.php?edit=', $row['id'], '" class="btn btn-warning" > <img src="https://img.icons8.com/android/18/000000/edit.png"/> </a> 
-            <a href="?delete=', $row['id'], '" class="btn btn-danger"><img src="https://img.icons8.com/windows/18/000000/delete-forever.png"/> </a>
+            <a href="course.php?edit=', $row['code'], '" class="btn btn-warning" > <img src="https://img.icons8.com/android/18/000000/edit.png"/> </a> 
+            <a href="?delete=', $row['code'], '" class="btn btn-danger"><img src="https://img.icons8.com/windows/18/000000/delete-forever.png"/> </a>
             <a href="modules.php?view=', $row['code'], '" class="btn btn-success"><b>modules</b> </a>
             </div>
             </div>

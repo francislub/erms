@@ -41,7 +41,7 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
             if (isset($_GET['edit'])) {
                 $id = $_GET['edit'];
 
-                $sql = "SELECT * FROM `departments` WHERE `id`= '$id' ";
+                $sql = "SELECT * FROM `departments` WHERE `code`= '$id' ";
                 $result = mysqli_query($con, $sql);
                 if (mysqli_num_rows($result) == 1) {
                     $row = mysqli_fetch_assoc($result);

@@ -12,8 +12,8 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
 }
 ?>
 <?php
-$title = "Add Subject ";
-$description = "Online Examination Result  Management System ";
+$title = "Add Subject | Online Examination Result Management System | SLGTI";
+$description = "Online Examination Result  Management System (ERMS)-SLGTI";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,15 +44,15 @@ $description = "Online Examination Result  Management System ";
             if (isset($_GET['edit'])) {
                 $id = $_GET['edit'];
                 echo $id;
-                $sql = "SELECT * FROM `courses` WHERE `id`= '$id' ";
+                $sql = "SELECT * FROM `courses` WHERE `code`= '$id' ";
                 $result = mysqli_query($con, $sql);
                 if (mysqli_num_rows($result) == 1) {
                     $row = mysqli_fetch_assoc($result);
                     $code = $row['code'];
                     $name = $row['name'];
-                    $Duration_Of_Course = $row['duration_of_course'];
-                    $Duration_Of_OJT = $row['duration_of_ojt'];
-                    $NVQ_Level = $row['NVQ_level'];
+                    $Duration_Of_Course = $row['Duration_Of_Course'];
+                    $Duration_Of_OJT = $row['Duration_Of_OJT'];
+                    $NVQ_Level = $row['NVQ_Level'];
                     $Department = $row['department_code'];
                 }
             }
@@ -203,11 +203,11 @@ $description = "Online Examination Result  Management System ";
                                                 <?php
                                                 if (isset($_GET['edit'])) {
                                                     ?>
-                                                    <input type="text" readonly placeholder="Enter Id" value="<?php echo $code; ?>" name="code" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="validationServer01" required>
+                                                    <input type="text" readonly placeholder="5it" value="<?php echo $code; ?>" name="code" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="validationServer01" required>
                                                 <?php
                                             } else {
                                                 ?>
-                                                    <input type="text" placeholder="5it" name="Enter Id" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="validationServer01" required>
+                                                    <input type="text" placeholder="5it" name="code" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="validationServer01" required>
                                                 <?php
                                             }
                                             ?>
@@ -221,9 +221,9 @@ $description = "Online Examination Result  Management System ";
 
                                     <div class="col-sm">
                                         <div class="form-group">
-                                        Subject <br>
+                                            Name <br>
                                             <div class="input-group input-group-sm mb-3">
-                                                <input type="text" placeholder="Enter Subject" name="name" value="<?php echo $name; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="validationServer01" required>
+                                                <input type="text" placeholder="Enter Subject Name" name="name" value="<?php echo $name; ?>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="validationServer01" required>
                                             </div>
                                         </div>
                                     </div>
@@ -305,21 +305,22 @@ $description = "Online Examination Result  Management System ";
                                                             <?php echo $Department; ?></option>
                                                         <option disabled value="">Choose Class</option>
                                                         <?php
-                                                        $result = $con->query("SELECT `name` FROM `departments` ");
+                                                        $result = $con->query("SELECT `code` FROM `departments` ");
                                                         while ($row = $result->fetch_assoc()) {
                                                             unset($dno);
-                                                            $dno = $row['name'];
+                                                            $dno = $row['code'];
                                                             echo '<option value="'. $dno .'"  >' . $dno . '</option>';
                                                         }
                                                     } else {
                                                         ?>
                                                         <option selected disabled value="">Choose Class</option>
                                                         <?php
-                                                        $result = $con->query("SELECT `name` FROM `departments`");
+                                                        $result = $con->query("SELECT * FROM `departments`");
                                                         while ($row = $result->fetch_assoc()) {
                                                             unset($dno);
-                                                            $dno = $row['name'];
-                                                            echo '<option value="'. $dno .'">' . $dno . '</option>';
+                                                            $dno = $row['code'];
+                                                            $dna = $row['name'];
+                                                            echo '<option value="'. $dno .'">' . $dna . '</option>';
                                                         }
                                                     }
                                                     ?>
