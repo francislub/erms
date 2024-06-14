@@ -31,7 +31,7 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
         $id = $_GET['department'];
         $query = "select distinct batch_no from exams_result where course='$id'";
         $result = mysqli_query($con, $query);
-        $output .= '<option selected disabled value="">Choose batch</option>';
+        $output .= '<option selected disabled value="">Choose stream</option>';
         while ($row = mysqli_fetch_assoc($result)) {
             $output .= '<option value="' . $row["batch_no"] . '">' . $row["batch_no"] . '</option>';
         }
@@ -127,10 +127,10 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                         <div class="col-4">
                             <div class='input-group-sm mb-3'>
                                 <div class='input-group-prepend'>
-                                    <label for='exampleInput'>Course</label>
+                                    <label for='exampleInput'>Subject</label>
                                 </div>
                                 <select class='custom-select' name="department" id="department" id='inputGroupSelect01' id='validationServer02' onchange="getdepartment()" required>
-                                    <option selected disabled value="">Choose Course</option>
+                                    <option selected disabled value="">Choose Subject</option>
                                     <?php echo $courses; ?>
                                 </select>
                             </div>
@@ -139,10 +139,10 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                         <div class="col-4">
                             <div class='input-group-sm mb-3'>
                                 <div class='input-group-prepend'>
-                                    <label for='exampleInput'>Batch</label>
+                                    <label for='exampleInput'>Stream</label>
                                 </div>
                                 <select class='custom-select action' name="batch" id="batch" id='inputGroupSelect01' id='validationServer02'>
-                                    <option selected disabled value="">Choose Batch</option>
+                                    <option selected disabled value="">Choose Stream</option>
                                     <!-- <?php echo $output; ?> -->
                                 </select>
                             </div>

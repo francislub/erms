@@ -55,10 +55,10 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                             echo '       
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label for="exampleInputEmail1" name="department">Department :-<b>', $row['department'], '</b></label>
+                                    <label for="exampleInputEmail1" name="department">Class :-<b>', $row['department'], '</b></label>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="exampleInputEmail1" name="batch">Betch :-', $row['batch'], '</b></label>
+                                    <label for="exampleInputEmail1" name="batch">Stream :-', $row['batch'], '</b></label>
             
                                 </div>
                                 <div class="col-md-4">
@@ -67,7 +67,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                             </div>
                             <div class="row">
                             <div class="col-md-4">
-                                <label for="exampleInputEmail1" name="course">Course :-<b>', $row['course'], '</b></label>
+                                <label for="exampleInputEmail1" name="course">Subject :-<b>', $row['course'], '</b></label>
                             </div>
                             <div class="col-md-4">
                                 <label for="exampleInputEmail1" name="level">Level :-', $row['NVQ_level'], '</b></label>
@@ -85,7 +85,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                     <label for="exampleInputEmail1" name="exams">Exams Type :-<b>', $row['exams'], '</b></label>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="exampleInputEmail1" name="semester">Semester :-<b>', $row['semester'], '</b></label>
+                                    <label for="exampleInputEmail1" name="semester">Term :-<b>', $row['semester'], '</b></label>
                                 </div>
                             </div>';
                                         }

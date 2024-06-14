@@ -287,7 +287,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                 <th scope='col'>SUBJECT</th>
                                                 <th scope='col'>MODULE</th>
                                                 <th scope='col'>TERM</th>
-                                                <th scope='col'>BATCH</th>
+                                                <th scope='col'>STREAM</th>
                                                 <th scope='col'>DATE</th>
                                                 <th scope='col'>ACTIONS</th>
                                             </tr>
@@ -432,8 +432,11 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
     if (isset($_POST["action"])) {
         $output = '';
         if ($_POST["action"] == "course") {
-            $query = "SELECT `batches`.`batch_no` FROM `batches` LEFT JOIN `courses` ON `batches`.`NVQ_Level` = `courses`.`NVQ_Level` AND 
-            `batches`.`department_code` = `courses`.`department_code` WHERE `courses`.`code`='" . $_POST["query"] . "'";
+            $query = "SELECT `batches`.`batch_no` FROM `batches` LEFT JOIN `courses` ON `batches`.`NVQ_level` = `courses`.`NVQ_Level` WHERE `courses`.`code`='" . $_POST["query"] . "'";
+
+            // more research is needed here for further explore of the logic//////////////////////////////////////////////////////
+
+            // `batches`.`department_code` = `courses`.`department_code` WHERE `courses`.`code`='" . $_POST["query"] . "'";
             $result = mysqli_query($con, $query);
             $output .= '<option value="" disabled selected>Choose Batch</option>';
             while ($row = mysqli_fetch_array($result)) {
