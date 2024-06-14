@@ -24,10 +24,10 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
 
   ?>
   <?php include_once('../databases/config.php'); ?>
-
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body >
 
   <script type='text/javascript'>
     function preview_image(event) {
@@ -47,11 +47,40 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
     }
 
     #output_image {
-      width: 200px;
-      height: 250px;
+      width: 150px;
+      height: 150px;
       border: 1px solid black;
 
     }
+    .double-line::after {
+      content: "";
+      display: block;
+      border-top: 3px double #000;
+      width: 100%;
+    }
+    .border-outside {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .border-outside::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border: 1px solid #000;
+    }
+    
+    /* .card {
+        background-image: url('../img/logo1.PNG');
+        background-size: cover;
+        background-position: center;
+        filter: brightness(100%);
+        
+        
+    } */
   </style>
   <!-- view  start -->
   <?php
@@ -93,7 +122,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
     <div class='container-fluid p-5'>
       <!-- #1 Insert Your Content-->
 
-      <div class='row'>
+      <div class="row cardback border-4 border-white-800 p-10">
         <div class="col">
           <div class="card">
             <div class="card-header">
@@ -108,7 +137,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
               </div>
             </div>
 
-            <div class="card-body">
+            <div class="card-body border-4 border-gray-800 p-2">
               <div class='row'>
                 <div class="col-md-6">
                 </div>
@@ -118,9 +147,40 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                 <div class='row'>
 
                   <form>
+                    <div class="flex justify-center text-center">
+                       <h1 class="text-center font-bold mb-1" style="font-size: 30px;">SHINING STARS NURSERY AND PRIMARY SCHOOL - VVUMBA</h1>
+                    </div>
                     <div class="row">
 
-                      <div class='col-3'>
+                    <div class="col-2 flex justify-center items-center">
+                        <?php
+                        // Path to the image
+                        $imagePath = '../img/logo1.png';
+                        ?>
+                        <img src="<?php echo $imagePath; ?>" class="w-48 h-30 mt-1 mb-1 ml-5" alt="Image Description">
+                    </div>
+
+                      <div class="col-7">
+
+                        <div class="flex justify-center text-center">
+                          <h1 class="text-center font-bold mb-1 underline" style="font-size: 14px;">Mixed day and boarding</h1>
+                        </div>
+                        <div class="flex justify-center text-center">
+                          <h1 class="text-center mb-1" style="font-size: 16px;">P.O.BOX 31007, TEL: 0753753179, 0773297951, 0772413164,</h1>
+                        </div>
+                        <div class="flex justify-center text-center">
+                          <h1 class="text-center font-bold mt-2 mb-2" style="font-size: 14px;">"A rise and shine"</h1>
+                        </div>
+                        <div class="flex justify-center text-center">
+                          <h1 class="text-center mb-1" style="font-size: 14px;"><b>Email:</b> shininostars.sch0012U22@grnail.com</h1>
+                        </div>
+                        <div class="flex justify-center text-center">
+                          <h1 class="text-center font-bold mb-1" style="font-size: 14px;">"A Centre for Guaranteed excellence"</h1>
+                        </div>
+
+
+                      </div>
+                      <div class='col-2'>
 
                         <div class="col-auto">
                           <?php
@@ -148,22 +208,28 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
 
                       </div>
 
-                      <div class="col-8">
-
-                        <div class="row">
-                          <div class="col-6"> <label for="exampleInputEmail1" name="department">Full Name :-<b><?php echo $full_name; ?></b></label></div>
-                          <div class="col-6"> <label for="exampleInputEmail1" name="batch">Student Id :-<b><?php echo $regno; ?></b></label></div>
-                          <div class="col-6"> <label for="exampleInputEmail1" name="batch">Name with Initial :-<b><?php echo $ini_name; ?></b></label></div>
-                          <div class="col-6"> <label for="exampleInputEmail1" name="batch">NIC Number :-<b><?php echo $nic; ?></b></label></div>
-                          <div class="col-6"> <label for="exampleInputEmail1" name="batch">Course :-<b><?php echo $cid; ?></b></label></div>
-                          <div class="col-6"> <label for="exampleInputEmail1" name="batch">Batch :-<b><?php echo $bid; ?></b></label></div>
-                          <div class="col-6"> <label for="exampleInputEmail1" name="batch">Academic Year :-<b><?php echo $ayear; ?></b></label></div>
-                        </div>
-
-                      </div>
-
 
                     </div>
+                    <div class="col-12 mt-3 mb-4 double-line">
+
+                    </div>
+
+                    <div class="col-auto flex justify-center text-center">
+                        <h1 class="text-center font-bold mt-2 mb-3 text-xl border-outside">END OF TERM II ASSESSMENT REPORT</h1>
+                    </div>
+
+                    <div class="col-12">
+
+                        <div class="row">
+                          <div class="col-8"> <label for="exampleInputEmail1" name="department" class="text-lg" style="font-size: 20px;">PUPIL'S NAME  :<b><?php echo $full_name; ?></b></label></div>
+                          <div class="col-4"> <label for="exampleInputEmail1" name="batch" class="text-lg" style="font-size: 20px;">Student Id :<b><?php echo $regno; ?></b></label></div>
+                          <div class="col-4"> <label for="exampleInputEmail1" name="batch" class="text-lg" style="font-size: 20px;">Name with Initial :-<b><?php echo $ini_name; ?></b></label></div>
+                          <div class="col-8"> <label for="exampleInputEmail1" name="batch" class="text-lg" style="font-size: 20px;">NIC Number :-<b><?php echo $nic; ?></b></label></div>
+                          <div class="col-4"> <label for="exampleInputEmail1" name="batch" class="text-lg" style="font-size: 20px;">Subject :-<b><?php echo $cid; ?></b></label></div>
+                          <div class="col-4"> <label for="exampleInputEmail1" name="batch" class="text-lg" style="font-size: 20px;">STREAM :-<b><?php echo $bid; ?></b></label></div>
+                          <div class="col-4"> <label for="exampleInputEmail1" name="batch" class="text-lg" style="font-size: 20px;">YEAR :-<b><?php echo $ayear; ?></b></label></div>
+                        </div>
+                      </div>
 
                     <?php
 
@@ -281,14 +347,81 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                       mysqli_close($con);
                       ?>
                   </table>
-
-                  <!-- <button onclick="window.print();" class="btn btn-primary" id="print-btn">Print</button> -->
-                  <!-- <div class="text-center">
-                  <a href="student_transcript_print.php" class="btn btn-primary">print</a>
-                </div> -->
-
-
                   <!-- #1 Insert Your Content-->
+                </div>
+                    <p class="font-bold mt-4 underline" style="text-align: center;"> PUPIL'S GENERAL CONDUCT</p>
+
+                    <div class="row">
+                      <table class="col-12">
+                          <thead>
+                              <tr>
+                                  <th class="border px-4 py-2 text-center font-bold">DISCPLINE</th>
+                                  <th class="border px-4 py-2 text-center font-bold">TIME MANAGEMENT</th>
+                                  <th class="border px-4 py-2 text-center font-bold">SMARTNESS</th>
+                                  <th class="border px-4 py-2 text-center font-bold">ATTENDANCE</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td class="border px-4 py-2 text-center">V.Good</td>
+                                  <td class="border px-4 py-2 text-center"></td>
+                                  <td class="border px-4 py-2 text-center"></td>
+                                  <td class="border px-4 py-2 text-center"></td>
+                              </tr>
+                              
+                          </tbody>
+                      </table>
+                    
+                    </div>
+
+                    <p class="font-bold mt-4 mb-4 underline" style="font-size:20px; text-align: center;">GRADING SCALE</p>
+
+                    <div class="row">
+                      <table class="col-12">
+                          <thead>
+                              <tr>
+                                  <th class="border px-4 py-2 text-center">90-100</th>
+                                  <th class="border px-4 py-2 text-center">80-89</th>
+                                  <th class="border px-4 py-2 text-center">70-79</th>
+                                  <th class="border px-4 py-2 text-center">60-69</th>
+                                  <th class="border px-4 py-2 text-center">55-59</th>
+                                  <th class="border px-4 py-2 text-center">50-54</th>
+                                  <th class="border px-4 py-2 text-center">45-49</th>
+                                  <th class="border px-4 py-2 text-center">40-44</th>
+                                  <th class="border px-4 py-2 text-center">0-39</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td class="border px-4 py-2 text-center font-bold">D1</td>
+                                  <td class="border px-4 py-2 text-center font-bold"></td>
+                                  <td class="border px-4 py-2 text-center font-bold"></td>
+                                  <td class="border px-4 py-2 text-center font-bold"></td>
+                                  <td class="border px-4 py-2 text-center font-bold"></td>
+                                  <td class="border px-4 py-2 text-center font-bold"></td>
+                                  <td class="border px-4 py-2 text-center font-bold"></td>
+                                  <td class="border px-4 py-2 text-center font-bold"></td>
+                                  <td class="border px-4 py-2 text-center font-bold"></td>
+                                  
+                              </tr>
+                              
+                          </tbody>
+                      </table>
+                    
+                    </div>
+
+                    <div class="mt-4">
+                      <div class="row">
+                        <div class="col-8"> <label for="exampleInputEmail1" name="department" class="text-lg" style="font-size: 20px;">Next term Begins on: <b><?php echo $full_name; ?></b></label></div>
+                        <div class="col-4"> <label for="exampleInputEmail1" name="batch" class="text-lg" style="font-size: 20px;">and ends on :<b><?php echo $regno; ?></b></label></div>
+                        
+                      </div>
+                    </div>
+
+            
+                <!-- </div> -->
+                <div class="mt-4">
+                    <p style="text-align: center; font-size:20px;"> <b>THIS REPORT IS NOT VALID WITHOUT A SCHOOL STAMP</b></p>
                 </div>
                 <div class="row">
                   <div class="col-4"></div>
@@ -301,7 +434,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
 
               </div>
             </div>
-            <p style="text-align: center;" type="hidden"> <b>This Is Computer sample Copy Transcript Do Not use others</b></p>
+            <!-- <p style="text-align: center;" type="hidden"> <b>For any error in the report card contact Eng. Francis</b></p> -->
           </div> <!-- #1 Insert Your Content" -->
         </div>
   </main>
