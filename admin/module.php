@@ -272,7 +272,7 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                                                         if (isset($_GET['edit'])) {
                                                             ?>
                                                             <?php
-                                                            $result1 = $con->query("select c.name,c.code from courses c inner join modules m on c.code=m.course_code and m.code='$id'; ");
+                                                            $result1 = $con->query("select c.name,c.code from courses c inner join modules m on c.code=m.Course_code and m.id='$id'; ");
                                                             if ($row1 = $result1->fetch_assoc()) {
                                                                 unset($dno);
                                                                 $dno = $row1['c.name'];
