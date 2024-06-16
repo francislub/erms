@@ -264,26 +264,26 @@ $description = 'Online Examination Result  Management System (ERMS)-SLGTI';
                             <?php
                             if (
                                 isset($_POST['submit'])
-                                && !empty($_POST['exams'])
-                                && !empty($_POST['department'])
+                                && !empty($_POST['exam'])
+                                && !empty($_POST['dept_name'])
                                 && !empty($_POST['course'])
                                 && !empty($_POST['batch'])
                                 && !empty($_POST['semester'])
                                 && !empty($_POST['module'])
-                                && !empty($_POST['type'])
+                                && !empty($_POST['exam_type'])
                                 && !empty($_POST['date'])
 
                             ) {
-                                $exams = $_POST['exams'];
-                                $department = $_POST['department'];
+                                $exams = $_POST['exam'];
+                                $department = $_POST['dept_name'];
                                 $course = $_POST['course'];
                                 $batch = $_POST['batch'];
                                 $semester = $_POST['semester'];
                                 $module = $_POST['module'];
-                                $type = $_POST['type'];
+                                $type = $_POST['exam_type'];
                                 $date = $_POST['date'];
 
-                                $sql = "INSERT INTO exams (exam, dept_name, course,batch,semester,module,exam_type,date)
+                                $sql = "INSERT INTO exams (exam, dept_name, course, batch, semester, module, exam_type, date)
     VALUES 
     ('$exams', 
     '$department', 
@@ -338,8 +338,8 @@ $description = 'Online Examination Result  Management System (ERMS)-SLGTI';
                                                 <th scope='col'>Exams</th>
                                                 <th scope='col'>DEPARTMENT</th>
                                                 <th scope='col'>COURSE</th>
-                                                <th scope='col'>BATCH</th>
-                                                <th scope='col'>SEMESTER</th>
+                                                <th scope='col'>STREAM</th>
+                                                <th scope='col'>TERM</th>
                                                 <th scope='col'>MODULE</th>
                                                 <th scope='col'>DATE</th>
                                                 <th scope='col'>ACTIONS</th>

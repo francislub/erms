@@ -262,7 +262,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                 <thead class='thead-light'>
                                                     <tr>
                                                         <td scope='col'>Course</td>
-                                                        <td scope='col'>Batch</td>
+                                                        <td scope='col'>Stream</td>
                                                         <td scope='col'>Course Mode</td>
                                                         <td scope='col'>Status</td>
                                                         <td scope='col'>Enroll Date</td>

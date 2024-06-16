@@ -81,7 +81,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                 <th scope='col'>Registration No</th>
                                                 <th scope='col'>Student Name</th>
                                                 <th scope='col'>Enrolled Course</th>
-                                                <th scope='col'>Batch</th>
+                                                <th scope='col'>Stream</th>
                                                 <th scope='col'>Contact Number</th>
                                                 <th scope='col'>ACTIONS</th>
                                             </tr>

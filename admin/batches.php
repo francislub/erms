@@ -22,13 +22,27 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
     <?php include_once("../head.php"); ?>
     <?php include_once("../config.php"); ?>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
    .test:after {
   content: '\2807';
   font-size: 18px;
   font-weight:bold;
   }
+  table.dataTable tbody tr:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+    table.dataTable tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+    table.dataTable tbody tr:nth-child(even) {
+        background-color: #ffffff;
+    }
     </style>
 </head>
 
@@ -71,14 +85,14 @@ if(isset($_GET['delete'])){
       <div class="card-body ">
          
       <div class="table-responsive-sm">
-    <table class="table ">
-    <thead class="p-3 mb-2 bg-primary text-white">
+    <table id="batchesTable" class="table table-striped table-bordered">
+    <thead class=" bg-primary text-white">
       <tr>
         <th scope="col">Stream</th>
         <th scope="col">Class</th>
         <th scope="col">Educational_level</th>
         <th scope="col">Academic_year</th>
-        <th scope="col"></th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -133,6 +147,28 @@ else{
        <!-- card end  -->
     </div>
     <?php include_once("../script.php"); ?>
+
+    <script>
+$(document).ready(function() {
+    $('#batchesTable').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [5, 10, 25, 50, 100],
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "language": {
+            "paginate": {
+                "first": "<<",
+                "last": ">>",
+                "next": ">",
+                "previous": "<"
+            }
+        }
+    });
+});
+</script>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 
 </html>

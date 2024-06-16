@@ -91,7 +91,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                         </div>
                                         <!-- new exams add form-->
                                         <div class='modal-body'>
-                                            <form method='POST' action='' class='needs-validation'>
+                                            <form method='POST' action='exams.php' class='needs-validation'>
                                                 <div class='row'>
                                                     <!-- select Exams Type -->
                                                     <div class='col-sm'>

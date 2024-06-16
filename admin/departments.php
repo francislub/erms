@@ -4,6 +4,11 @@ if (!isset($_SESSION['username'])) {
     header('Location: .././index.php');
 }
 ?>
+<style>
+    .table-hover tbody tr:hover {
+        background-color: #f3f4f6; 
+    }
+</style>
 <?php 
 
 if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
@@ -22,6 +27,7 @@ $description = "Online School Management System";
     <?php include_once("./head.php"); ?>
     <?php include_once("../config.php"); ?>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -79,56 +85,87 @@ if(isset($_GET['delete'])){
 
                         <!-- select -->
 
-                        <form method="POST">
-                            <div class="row">
-                                <div class="form-group col-md-12">
-                                    <div class="table-responsive-sm">
-                                        <table class="table ">
-                                            <thead class="p-3 mb-2 bg-primary text-white">
-                                                <tr>
-                                                    <th scope="col">code</th>
-                                                    <th scope="col">Name</th>
-                                                    <div class="row"></div>
-                                                    <th class="text-right">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $sql = 'SELECT * FROM `departments`';
-                                                $result = mysqli_query($con, $sql);
-                                                if (mysqli_num_rows($result) > 0) {
-                                                    while ($row = mysqli_fetch_assoc($result)) {
-                                                        echo '<tr>
-            <td>', $row['code'], '</td>
-            <td>', $row['name'], '</td>
-            
-            <td>
-            <div class="row">
-            <div class="col"></div>
-            <div class="col-auto">
-            <div class="btn-group btn-sm" role="group" aria-label="Basic example">
-            <a href="department.php?edit=', $row['code'], '" class="btn btn-warning" > <img src="https://img.icons8.com/android/18/000000/edit.png"/> </a> 
-            <a href="?delete=', $row['code'], '" class="btn btn-danger"><img src="https://img.icons8.com/windows/18/000000/delete-forever.png"/> </a>
-            <a href="courses.php?view=', $row['code'], '" class="btn btn-success"><b>Subjects</b> </a>
-            </div>
-            </div>
-          </div>
-            </td>
-        </tr>';
+                        <div class="w-full p-10">
+                            <form method="POST">
+                                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                                    <div class="p-3 mb-2 bg-primary text-white">
+                                        <h2 class="text-center font-bold text-xl">Department List</h2>
+                                    </div>
+                                    <div class="p-3">
+                                        <div class="flex justify-between items-center mb-4">
+                                            <div class="w-1/3 relative">
+                                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200" placeholder="Search...">
+                                                <button type="submit" class="absolute inset-y-0 right-0 px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+                                                    Search
+                                                </button>
+                                            </div>
+                                            <div class="w-1/3 text-right">
+                                                <label for="rowsPerPage" class="mr-2">Show:</label>
+                                                <select name="rowsPerPage" id="rowsPerPage" class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200">
+                                                    <option value="10">10</option>
+                                                    <option value="20">20</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive-sm">
+                                            <table class="table-auto w-full">
+                                                <thead class="p-3 mb-2 bg-primary text-white">
+                                                    <tr>
+                                                        <th class="px-4 py-2">Code</th>
+                                                        <th class="px-4 py-2">Name</th>
+                                                        <th class="px-4 py-2 text-right">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="table-hover">
+                                                    <?php
+                                                    $sql = 'SELECT * FROM `departments`';
+                                                    $result = mysqli_query($con, $sql);
+                                                    if (mysqli_num_rows($result) > 0) {
+                                                        while ($row = mysqli_fetch_assoc($result)) {
+                                                            echo '<tr>
+                                                                <td class="border px-4 py-2">', $row['code'], '</td>
+                                                                <td class="border px-4 py-2">', $row['name'], '</td>
+                                                                <td class="border px-4 py-2 text-right">
+                                                                    <div class="btn-group btn-sm" role="group" aria-label="Basic example">
+                                                                        <a href="department.php?edit=', $row['code'], '" class="btn btn-warning">
+                                                                            <img src="https://img.icons8.com/android/18/000000/edit.png"/> 
+                                                                        </a> 
+                                                                        <a href="?delete=', $row['code'], '" class="btn btn-danger">
+                                                                            <img src="https://img.icons8.com/windows/18/000000/delete-forever.png"/>
+                                                                        </a>
+                                                                        <a href="courses.php?view=', $row['code'], '" class="btn btn-success">
+                                                                            <b>Subjects</b>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>';
+                                                        }
+                                                    } else {
+                                                        echo '<tr><td colspan="3" class="border px-4 py-2 text-center">No departments found</td></tr>';
                                                     }
-                                                } else {
-                                                    echo 'no rows';
-                                                }
-                                                ?>
-
-
-                                            </tbody>
-                                        </table>
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="flex justify-between items-center mt-4">
+                                            <div>
+                                                <button type="button" class="px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+                                                 Previous
+                                                </button>
+                                                <button type="button" class="ml-2 px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+                                                    Next
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <span class="text-sm text-gray-600">Showing 1-10 of 50 entries</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-
+                            </form>
+                        </div>
                     </div>
                     <br>
                     <!-- 2 row end -->

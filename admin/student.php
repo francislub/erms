@@ -487,17 +487,19 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                             <option value="Mr" <?php if ($stitle == "Mr") echo 'selected'; ?>>Mr</option>
                                             <option value="Miss" <?php if ($stitle == "Miss") echo 'selected'; ?>>Miss</option>
                                             <option value="Mrs" <?php if ($stitle == "Mrs") echo 'selected'; ?>>Mrs</option>
+                                            <option value="He" <?php if ($stitle == "He") echo 'selected'; ?>>He</option>
+                                            <option value="She" <?php if ($stitle == "She") echo 'selected'; ?>>She</option>
                                         </select>
                                     </div>
 
                                     <div class="col-7">
                                         <label for="fullname"> Full Name: </label>
-                                        <input type="text" class="form-control" name="fullname" placeholder="Sathyaseelan Sathursan" value="<?php echo $full_name; ?>" required>
+                                        <input type="text" class="form-control" name="fullname" placeholder="Enter Full Name" value="<?php echo $full_name; ?>" required>
                                     </div>
 
                                     <div class="col-3">
                                         <label for="ini_name"> Name with Initials: </label>
-                                        <input type="text" class="form-control" name="ini_name" placeholder="S.Sathursan" value="<?php echo $ini_name; ?>" required>
+                                        <input type="text" class="form-control" name="ini_name" placeholder="Name Initials" value="<?php echo $ini_name; ?>" required>
                                     </div>
 
                                 </div>
@@ -519,6 +521,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                         <label for="civil"> Civil Status: </label>
                                         <select name="civil" class="custom-select" value="<?php echo $civil; ?>" required>
                                             <option selected disabled>Choose</option>
+                                            <option value="Child" <?php if ($civil == "Child")  echo 'selected'; ?>>Child</option>
                                             <option value="Single" <?php if ($civil == "Single")  echo 'selected'; ?>>Single</option>
                                             <option value="Married" <?php if ($civil == "Married")  echo 'selected'; ?>>Married</option>
                                         </select>
@@ -579,8 +582,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                             <option value="Western" <?php if ($province == "Western")  echo 'selected'; ?>> Western </option>
                                             <option value="North Western" <?php if ($province == "North Western")  echo 'selected'; ?>> North Western </option>
                                             <option value="North Central" <?php if ($province == "North Central")  echo 'selected'; ?>> North Central </option>
-                                            <option value="Uva" <?php if ($province == "Uva")  echo 'selected'; ?>> Uva </option>
-                                            <option value="Sabaragamuwa" <?php if ($province == "Sabaragamuwa")  echo 'selected'; ?>> Sabaragamuwa </option>
+                                            
                                         </select>
                                     </div>
 
@@ -623,7 +625,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
 
                                     <div class="col-2">
                                         <label for="blood"> Blood Group: </label>
-                                        <select name="blood" class="custom-select" value="<?php echo $blood; ?>" required>
+                                        <select name="blood" class="custom-select" value="<?php echo $blood; ?>">
                                             <option selected disabled> Choose</option>
                                             <option value="A+" <?php if ($blood == "A+")  echo 'selected'; ?>> A+ </option>
                                             <option value="A-" <?php if ($blood == "A-")  echo 'selected'; ?>> A- </option>
@@ -769,9 +771,9 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                             <table class='table align-middle'>
                                                 <thead class='thead-light'>
                                                     <tr>
-                                                        <td scope='col'>Course</td>
-                                                        <td scope='col'>Batch</td>
-                                                        <td scope='col'>Course Mode</td>
+                                                        <td scope='col'>Class</td>
+                                                        <td scope='col'>Stream</td>
+                                                        <td scope='col'>Class Mode</td>
                                                         <td scope='col'>Status</td>
                                                         <td scope='col'>Enroll Date</td>
                                                         <td scope='col'>Exit Date</td>
@@ -845,14 +847,14 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                             <div class="form-row">
 
                                                 <div class="col-3">
-                                                    <label for="ecid"> Course Name: </label>
+                                                    <label for="ecid"> Class: </label>
                                                     <select name="ecid" id="ecid" class="custom-select action">
                                                         <?php
                                                         $course_name = '';
-                                                        $query = "SELECT * FROM courses";
+                                                        $query = "SELECT * FROM departments";
                                                         $result = mysqli_query($con, $query);
                                                         while ($row = mysqli_fetch_array($result)) {
-                                                            $course_name .= '<option value="' . $row["code"] . '">' . $row["code"] . '</option>';
+                                                            $course_name .= '<option value="' . $row["code"] . '">' . $row["name"] . '</option>';
                                                         }
                                                         echo '<option value="' . $ecid . '" selected>' . $ecid . '</option>';
                                                         ?>
@@ -863,7 +865,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                 </div>
 
                                                 <div class="col-3">
-                                                    <label for="ebid"> Batch No: </label>
+                                                    <label for="ebid"> Stream: </label>
                                                     <select name="ebid" id="ebid" class="custom-select action">
                                                         <?php
                                                         echo '<option value="' . $ebid . '" selected>' . $ebid . '</option>';
@@ -873,7 +875,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                 </div>
 
                                                 <div class="col-3">
-                                                    <label for="emode"> Course Mode: </label>
+                                                    <label for="emode"> Class Mode: </label>
                                                     <select name="emode" class="custom-select" value="" required>
                                                         <option disabled> Choose</option>
                                                         <option value="Full" <?php if ($emode == "Full") echo 'selected'; ?>>Full Time</option>
@@ -952,14 +954,14 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                         <div class="form-row">
 
                                                             <div class="col-3">
-                                                                <label for="cid"> Course Name: </label>
+                                                                <label for="cid"> Class: </label>
                                                                 <select name="cid" id="cid" class="custom-select action">
                                                                     <?php
                                                                     $course_name = '';
-                                                                    $query = "SELECT * FROM courses";
+                                                                    $query = "SELECT * FROM departments";
                                                                     $result = mysqli_query($con, $query);
                                                                     while ($row = mysqli_fetch_array($result)) {
-                                                                        $course_name .= '<option value="' . $row["code"] . '">' . $row["code"] . '</option>';
+                                                                        $course_name .= '<option value="' . $row["code"] . '">' . $row["name"] . '</option>';
                                                                     }
                                                                     ?>
                                                                     <option value="">Choose</option>
@@ -969,14 +971,14 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                             </div>
 
                                                             <div class="col-3">
-                                                                <label for="bid"> Batch No: </label>
+                                                                <label for="bid"> Stream: </label>
                                                                 <select name="bid" id="bid" class="custom-select action">
                                                                     <option value="" selected disabled>Choose</option>
                                                                 </select>
                                                             </div>
 
                                                             <div class="col-3">
-                                                                <label for="mode"> Course Mode: </label>
+                                                                <label for="mode"> Class Mode: </label>
                                                                 <select name="mode" class="custom-select" value="" required>
                                                                     <option selected disabled> Choose</option>
                                                                     <option value="Full">Full Time</option>
@@ -1045,14 +1047,14 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                     <div class="form-row">
 
                                         <div class="col-3">
-                                            <label for="cid"> Course Name: </label>
+                                            <label for="cid"> Class: </label>
                                             <select name="cid" id="cid" class="custom-select action">
                                                 <?php
                                                 $course_name = '';
-                                                $query = "SELECT * FROM courses";
+                                                $query = "SELECT * FROM departments";
                                                 $result = mysqli_query($con, $query);
                                                 while ($row = mysqli_fetch_array($result)) {
-                                                    $course_name .= '<option value="' . $row["code"] . '">' . $row["code"] . '</option>';
+                                                    $course_name .= '<option value="' . $row["code"] . '">' . $row["name"] . '</option>';
                                                 }
                                                 ?>
                                                 <option value="">Choose</option>
@@ -1061,14 +1063,14 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                         </div>
 
                                         <div class="col-3">
-                                            <label for="bid"> Batch No: </label>
+                                            <label for="bid"> Stream: </label>
                                             <select name="bid" id="bid" class="custom-select action">
                                                 <option value="" selected disabled>Choose</option>
                                             </select>
                                         </div>
 
                                         <div class="col-3">
-                                            <label for="mode"> Course Mode: </label>
+                                            <label for="mode"> Class Mode: </label>
                                             <select name="mode" class="custom-select" value="" required>
                                                 <option selected disabled> Choose</option>
                                                 <option value="Full">Full Time</option>
@@ -1214,8 +1216,8 @@ if (isset($_POST["action"])) {
     $connect = mysqli_connect("localhost", "root", "", "erms");
     $output = '';
     if ($_POST["action"] == "cid") {
-        $query = "SELECT `batches`.`batch_no` FROM `batches` LEFT JOIN `courses` ON `batches`.`NVQ_level` = `courses`.`NVQ_level` AND 
-  `batches`.`department_code` = `courses`.`department_code` WHERE `courses`.`code`='" . $_POST["query"] . "'";
+        $query = "SELECT `batches`.`batch_no` FROM `batches` LEFT JOIN `departments` ON
+  `batches`.`department_code` = `departments`.`code` WHERE `departments`.`code`='" . $_POST["query"] . "'";
         $result = mysqli_query($connect, $query);
         $output .= '<option value="" disabled selected>Choose</option>';
         while ($row = mysqli_fetch_array($result)) {
@@ -1261,8 +1263,8 @@ if (isset($_POST["action"])) {
     $connect = mysqli_connect("localhost", "root", "", "erms");
     $output = '';
     if ($_POST["action"] == "ecid") {
-        $query = "SELECT `batches`.`batch_no` FROM `batches` LEFT JOIN `courses` ON `batches`.`NVQ_level` = `courses`.`NVQ_level` AND 
-  `batches`.`department_code` = `courses`.`department_code` WHERE `courses`.`code`='" . $_POST["query"] . "'";
+        $query = "SELECT `batches`.`batch_no` FROM `batches` LEFT JOIN `departments` ON
+  `batches`.`department_code` = `departments`.`code` WHERE `departments`.`code`='" . $_POST["query"] . "'";
         $result = mysqli_query($connect, $query);
         $output .= '<option value="" disabled selected>Choose</option>';
         while ($row = mysqli_fetch_array($result)) {
