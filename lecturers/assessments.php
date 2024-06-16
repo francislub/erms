@@ -92,7 +92,7 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
 
                                                 <th scope='col'>Name</th>
                                                 <th scope='col'>Module</th>
-                                                <th scope='col'>Batch</th>
+                                                <th scope='col'>Stream</th>
                                                 <th scope='col'>Action</th>
                                             </tr>
                                         </thead>

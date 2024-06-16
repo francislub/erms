@@ -86,6 +86,18 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-trophy"></i> Grade
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        
+                        <a class="dropdown-item" href="grades.php">Grades</a>
+                        <a class="dropdown-item" href="grade.php">New Grade</a>
+                        <div class="dropdown-divider"></div>
+                    
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-graduation-cap"></i> Examinations
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">

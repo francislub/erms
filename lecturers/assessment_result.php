@@ -192,22 +192,35 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                                                 echo "<a href='assessment_resultview.php?id=$id'class='btn btn-sm' style='background-color: #0097c4 ; color: #ffffff;' > See result </a>";
                                                }
                                             } else {
-                                            $sql = "select st.id,s.name_with_initials from student s,student_enroll st where s.id=st.id and batch_no=$batch and course_code='$c_code'";
+                                           // Assuming $batch and $c_code are set and sanitized
+                                           
+                                            // Construct the SQL query
+                                            $sql = "SELECT st.id, s.name_with_initials 
+                                                    FROM student s
+                                                    JOIN student_enroll st ON s.id = st.id
+                                                    WHERE st.batch_no = '$batch' AND st.course_code = '$c_code'";
+
                                             $result = mysqli_query($con, $sql);
+
+                                            // Check for SQL errors
+                                            if (!$result) {
+                                                die('SQL Error: ' . mysqli_error($con));
+                                            }
+
                                             while ($row = mysqli_fetch_assoc($result)) {
                                                 echo '<tr>
-                                                    <td><input readonly name="reg', $row['id'], '" value="', $row['id'], '" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required ></td>
+                                                    <td><input readonly name="reg', $row['id'], '" value="', $row['id'], '" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required></td>
                                                     <td>', $row['name_with_initials'], '</td>
-                                                    <td><input type="number" name="res', $row['id'], '" value="" min="0" max="100" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required ></td>
+                                                    <td><input type="number" name="res', $row['id'], '" value="" min="0" max="100" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required></td>
                                                     <td>
-                                                    <div class="form-group">
-                                                        <select class="form-control" id="exampleFormControlSelect1" style="width: 50%;" name="att', $row['id'], '" >
-                                                            <option value="1">1 st</option>
-                                                            <option  value="2">2 nd</option>
-                                                            <option  value="3">3 rd</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
+                                                        <div class="form-group">
+                                                            <select class="form-control" id="exampleFormControlSelect1" style="width: 50%;" name="att', $row['id'], '">
+                                                                <option value="1">1 st</option>
+                                                                <option value="2">2 nd</option>
+                                                                <option value="3">3 rd</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
                                                 <td>
                                                 <div class="row">
                                                 <div class="col"></div>
