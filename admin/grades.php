@@ -53,24 +53,38 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
 <div class="container">
 <!-- delete -->
 <?php
-if(isset($_GET['delete'])){
-    $id = $_GET['delete'];
-    $nv=$_GET['nvq'];
-    $de=$_GET['dep'];
-    $sql = "DELETE FROM `batches` WHERE `batches`.`batch_no` = '$id' and `batches`.`department_code` = '$de' and `batches`.`NVQ_level` = '$nv'";
-    if(mysqli_query($con,$sql)){
-        echo "
-       <div class='alert alert-success' role='alert'>
-       delete success fully 
-       <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-           <span aria-hidden='true'>&times;</span>
-        </button>
-      </div>";
-    }else{
-        echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    if (isset($_GET['delete'])) {
+        $id = mysqli_real_escape_string($con, $_GET['delete']);
+
+        $to =  null;
+        $from =  null;
+        $grade =  null;
+        $comment =  null;
+
+        if ($to !== null && $from !== null && $grade !== null && $comment !== null) {
+            $sql = "DELETE FROM `grade` WHERE `grade`.`grade_id` = '$id' AND `grade`.`from` = '$from' AND `grade`.`to` = '$to' AND `grade`.`grade` = '$grade' AND `grade`.`comment` = '$comment'";
+            if (mysqli_query($con, $sql)) {
+                echo "
+                <div class='alert alert-success' role='alert'>
+                    Delete successful
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                        <span aria-hidden='true'>&times;</span>
+                    </button>
+                </div>";
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($con);
+            }
+        } else {
+            echo "
+            <div class='alert alert-danger' role='alert'>
+                Missing parameters for delete operation
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </div>";
+        }
     }
-}
-?>
+    ?>
 <!-- delete -->
 <form action=""method="post">
 <div class="card  mb-3" >

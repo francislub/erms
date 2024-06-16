@@ -11,6 +11,33 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 
+<?php
+// Database connection
+$con = new mysqli("localhost", "root", "", "erms");
+
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}
+
+// Fetch data from the database
+$sql = "SELECT `from`, `to`, `grade` FROM `grade`";
+$result = $con->query($sql);
+
+$marks = [];
+$grades = [];
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $marks[] = $row['from'] . ' - ' . $row['to'];
+        $grades[] = $row['grade'];
+    }
+} else {
+    echo "No results found.";
+}
+
+$con->close();
+?>
+
 <?php 
 
 if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
@@ -389,36 +416,26 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                     <p class="font-bold mt-4 mb-4 underline" style="font-size:20px; text-align: center;">GRADING SCALE</p>
 
                     <div class="row">
-                      <table class="col-12">
-                          <thead>
-                              <tr>
-                                  <th class="border px-4 py-2 text-center">90-100</th>
-                                  <th class="border px-4 py-2 text-center">80-89</th>
-                                  <th class="border px-4 py-2 text-center">70-79</th>
-                                  <th class="border px-4 py-2 text-center">60-69</th>
-                                  <th class="border px-4 py-2 text-center">55-59</th>
-                                  <th class="border px-4 py-2 text-center">50-54</th>
-                                  <th class="border px-4 py-2 text-center">45-49</th>
-                                  <th class="border px-4 py-2 text-center">40-44</th>
-                                  <th class="border px-4 py-2 text-center">0-39</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td class="border px-4 py-2 text-center font-bold">D1</td>
-                                  <td class="border px-4 py-2 text-center font-bold"></td>
-                                  <td class="border px-4 py-2 text-center font-bold"></td>
-                                  <td class="border px-4 py-2 text-center font-bold"></td>
-                                  <td class="border px-4 py-2 text-center font-bold"></td>
-                                  <td class="border px-4 py-2 text-center font-bold"></td>
-                                  <td class="border px-4 py-2 text-center font-bold"></td>
-                                  <td class="border px-4 py-2 text-center font-bold"></td>
-                                  <td class="border px-4 py-2 text-center font-bold"></td>
-                                  
-                              </tr>
-                              
-                          </tbody>
-                      </table>
+                    <table class="col-12 table table-bordered">
+                        <thead>
+                            <tr>
+                                <?php
+                                foreach ($marks as $mark) {
+                                    echo "<th class='border px-4 py-2 text-center'>{$mark}</th>";
+                                }
+                                ?>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <?php
+                                foreach ($grades as $grade) {
+                                    echo "<td class='border px-4 py-2 text-center font-bold'>{$grade}</td>";
+                                }
+                                ?>
+                            </tr>
+                        </tbody>
+                    </table>
                     
                     </div>
 
