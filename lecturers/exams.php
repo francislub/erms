@@ -169,10 +169,10 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                                         <div class='input-group-sm mb-3 '>
                                                             <div class='input-group-prepend '>
                                                                 <!-- <label class='input-group-text' for='inputGroupSelect01'>Type</label> -->
-                                                                <label for='exampleInputEmail1'>Batch</label>
+                                                                <label for='exampleInputEmail1'>Stream</label>
                                                             </div>
                                                             <select name="batch" required id="batch" class="form-control action"  id='inputGroupSelect01' id='validationServer01'>
-                                                                <option disabled value=''>Select Batch</option>
+                                                                <option disabled value=''>Select Stream</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -438,7 +438,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
 
             // `batches`.`department_code` = `courses`.`department_code` WHERE `courses`.`code`='" . $_POST["query"] . "'";
             $result = mysqli_query($con, $query);
-            $output .= '<option value="" disabled selected>Choose Batch</option>';
+            $output .= '<option value="" disabled selected>Choose Stream</option>';
             while ($row = mysqli_fetch_array($result)) {
                 $output .= '<option value="' . $row["batch_no"] . '">' . $row["batch_no"] . '</option>';
             }

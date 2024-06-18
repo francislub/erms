@@ -8,7 +8,7 @@ if(isset($_POST["action"]))
  {
   $query = "SELECT * FROM courses WHERE department_code = '".$_POST["query"]."'";
   $result = mysqli_query($connect, $query);
-  $output .= '<option value="" disabled selected>Select course</option>';
+  $output .= '<option value="" disabled selected>Select Subject</option>';
   while($row = mysqli_fetch_array($result))
   {
    $output .= '<option value="'.$row["code"].'">'.$row["name"].'</option>';
