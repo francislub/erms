@@ -6,7 +6,7 @@ if (isset($_GET['department'])) {
     echo $_GET['department'];
     $query = 'select * from courses where department_code="' . $_GET['department'] . '";';
     $result = mysqli_query($con, $query);
-    $output .= '<option selected disabled value="">Choose Course</option>';
+    $output .= '<option selected disabled value="">Choose Subject</option>';
     while ($row = mysqli_fetch_array($result)) {
       $output .= '<option value="' . $row["code"] . '">' . $row["name"] . '</option>';
     }
@@ -33,7 +33,7 @@ if (isset($_GET['cou'])) {
   echo $_GET['cou'];
   $query = 'select * from batches where department_code=(select department_code from courses where code="'.$_GET['cou'].'") and NVQ_level=(select NVQ_level from courses where code="'.$_GET['cou'].'") order by batch_no desc;';
   $result = mysqli_query($con, $query);
-  $output .= '<option selected disabled value="">Choose Batch</option>';
+  $output .= '<option selected disabled value="">Choose Stream</option>';
   while ($row = mysqli_fetch_array($result)) {
     $output .= '<option value="' . $row["id"] . '">' . $row["batch_no"] . '</option>';
   }

@@ -135,14 +135,14 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                                     </div>
 
                                     <div class="col-md-2 col-sm-12">
-                                        <h6>Batch</h6>
+                                        <h6>Stream</h6>
                                     </div>
                                     <div class="col-md-4 col-sm-12">
                                         <h6 class="text-muted"><?php echo $batch; ?> <span class="badge badge-dark"></span></h6>
                                     </div>
 
                                     <div class="col-md-2 col-sm-12">
-                                        <h6>Course </h6>
+                                        <h6>Subject </h6>
                                     </div>
                                     <div class="col-md-4 col-sm-12">
                                         <h6 class="text-muted"><?php echo $course; ?></h6>

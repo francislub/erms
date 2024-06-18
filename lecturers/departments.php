@@ -13,7 +13,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
 }
 ?>
 <?php
-$title = "Add Department | Online Examination Result Management System | SLGTI";
+$title = "Add Class | Online Examination Result Management System | SLGTI";
 $description = "Online Examination Result  Management System (ERMS)-SLGTI";
 ?>
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ if(isset($_GET['delete'])){
     {
         ?>
        <div class='alert alert-warning' role='alert'>
-       This department already allocate courses so not delete this department.
+       This Class already allocate.
        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
            <span aria-hidden='true'>&times;</span>
         </button>
@@ -68,7 +68,7 @@ if(isset($_GET['delete'])){
                     <div class="card-header ">
                         <div class="row">
                             <div class="col">
-                                <h4>Department</h4>
+                                <h4>Class</h4>
                             </div>
                             <div class="col-auto">
                                 
@@ -88,7 +88,7 @@ if(isset($_GET['delete'])){
                                             <thead class="p-3 mb-2 bg-primary text-white">
                                                 <tr>
                                                     <th scope="col">code</th>
-                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Class</th>
                                                     <div class="row"></div>
                                                     <th class="text-right"></th>
                                                 </tr>
@@ -109,7 +109,7 @@ if(isset($_GET['delete'])){
             <div class="col-auto">
             <div class="btn-group btn-sm" role="group" aria-label="Basic example">
             
-            <a href="courses.php?view=', $row['code'], '" class="btn btn-success"><b>courses</b> </a>
+            <a href="courses.php?view=', $row['code'], '" class="btn btn-success"><b>Subjects</b> </a>
             </div>
             </div>
           </div>

@@ -151,17 +151,17 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
             <form action="" method="post">
                 <div class="card  mb-3">
                     <div class="card-header ">
-                        <h1>Assessments</h1>
+                        <h1>Assessments/Tests</h1>
                         <hr>
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group">
-                                    Department <br>
+                                    Class <br>
                                     <div class="input-group input-group-sm mb-3">
 
                                         <select class="custom-select" onchange="getdepartment(),getdepartmenttable()" name="department" id="department" id="inputGroupSelect01" id="validationCustom04" required>
 
-                                            <option selected disabled value="">Choose department</option>
+                                            <option selected disabled value="">Choose Class</option>
                                             <?php echo $departments ?>
                                         </select>
                                     </div>
@@ -169,12 +169,12 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group">
-                                    Course <br>
+                                    Subject <br>
                                     <div class="input-group input-group-sm mb-3">
 
                                         <select class="custom-select" onchange="getcourse(),getcoursetable()" name="course" id="course" id="inputGroupSelect01" id="validationCustom04" required>
 
-                                            <option selected disabled value="">Choose course</option>
+                                            <option selected disabled value="">Choose Subject</option>
 
 
                                         </select>
@@ -201,11 +201,11 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group">
-                                    Batch <br>
+                                    Stream <br>
                                     <div class="input-group input-group-sm mb-3">
 
                                         <select class="custom-select" name="batch" id="batch" id="inputGroupSelect01" id="validationCustom04" required>
-                                            <option selected disabled value="">Choose batch</option>
+                                            <option selected disabled value="">Choose stream</option>
                                         </select>
                                     </div>
                                 </div>
@@ -220,9 +220,9 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                                         <thead class='bg-primary text-light'>
                                             <tr>
 
-                                                <th scope='col'>Name</th>
+                                                <th scope='col'>Test Name</th>
                                                 <th scope='col'>Module</th>
-                                                <th scope='col'>Batch</th>
+                                                <th scope='col'>Stream</th>
                                                 <th scope='col'>Action</th>
 
 

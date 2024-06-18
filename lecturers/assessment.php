@@ -280,19 +280,19 @@ as department,type,percentage from assessments where id='$id'; ";
 
                   <div class="col-md-6 col-sm-6 col-xs-6">
                     <div class="form-group">
-                      Department <br>
+                      Class <br>
                       <div class="input-group input-group-sm mb-3">
                         <select name="department" id="department" class="form-control action" required>
                           <?php
                           if (isset($_GET['edit'])) {
                             ?>
                             <option value="<?php echo $dept_no; ?>" selected><?php echo $department; ?></option>
-                            <option value="">Select Department</option>
+                            <option value="">Select Class</option>
                             <?php echo $departments; ?>
                           <?php
                         } else {
                           ?>
-                            <option value="">Select Department</option>
+                            <option value="">Select Class</option>
                             <?php echo $departments; ?>
                           <?php
                         }
@@ -305,19 +305,19 @@ as department,type,percentage from assessments where id='$id'; ";
 
                   <div class="col-md-6 col-sm-6 col-xs-6">
                     <div class="form-group">
-                      Course <br>
+                      Subject <br>
                       <div class="input-group input-group-sm mb-3">
                         <select name="course" id="course" class="form-control action" required>
                           <?php
                           if (isset($_GET['edit'])) {
                             ?>
                             <option value="<?php echo $course; ?>" selected><?php echo $course; ?></option>
-                            <option value="">Select course</option>
+                            <option value="">Select Subject</option>
 
                           <?php
                         } else {
                           ?>
-                            <option value="">Select course</option>
+                            <option value="">Select Subject</option>
 
                           <?php
                         }
@@ -388,7 +388,7 @@ as department,type,percentage from assessments where id='$id'; ";
                 <div class="row">
                   <div class="col-md-6 col-sm-6 col-xs-6">
                     <div class="form-group">
-                      Batch <br>
+                      Stream <br>
                       <div class="input-group input-group-sm mb-3">
 
                         <select class="custom-select" name="batch" id="batch" id="inputGroupSelect01" id="validationCustom04" onchange="getselectvalue()" required>
@@ -396,12 +396,12 @@ as department,type,percentage from assessments where id='$id'; ";
                           <<?php
                             if (isset($_GET['edit'])) {
                               ?> <option value="<?php echo $batch_no; ?>" selected><?php echo $batch; ?></option>
-                              <option value="">Select batch</option>
+                              <option value="">Select Stream</option>
 
                             <?php
                           } else {
                             ?>
-                              <option value="">Select batch</option>
+                              <option value="">Select Stream</option>
                             <?php
                           }
                           ?>

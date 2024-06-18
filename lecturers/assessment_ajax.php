@@ -20,7 +20,7 @@ if (isset($_POST["action"])) {
     echo $dep = $_POST["query"];
     $query = "SELECT * FROM courses WHERE department_code = '" . $_POST["query"] . "'";
     $result = mysqli_query($con, $query);
-    $output .= '<option value="" disabled selected>Select course </option>';
+    $output .= '<option value="" disabled selected>Select subject </option>';
     while ($row = mysqli_fetch_array($result)) {
       $output .= '<option value="' . $row["code"] . '">' . $row["name"] . '</option>';
     }
@@ -41,7 +41,7 @@ if (isset($_POST["action"])) {
           WHERE Academic_year = '" . $_POST["query"] . "'";
 
     $result = mysqli_query($con, $query);
-    $output .= '<option value="" disabled selected>Select Batch</option>';
+    $output .= '<option value="" disabled selected>Select Stream</option>';
     while ($row = mysqli_fetch_array($result)) {
       $output .= '<option value="' . $row["id"] . '">' . $row["NVQ_level"] . "-Batch-" . $row["batch_no"] . '</option>';
     }
@@ -61,7 +61,7 @@ if (isset($_GET['batch'])) {
    while ($row = mysqli_fetch_array($result)) {
      $output .= '<tr>';
      $output .= '<td>' . $row['names'] . '</td>';
-     $output .= '<td>' . $row['percentage'] . '</td>';
+     $output .= '<td>' . $row['Percentage'] . '</td>';
      $output .= '</tr>';
    }
    $output .= '</table>';
@@ -74,7 +74,7 @@ if (isset($_GET['cou'])) {
   $_GET['cou'];
   $query = 'select * from batches where department_code=(select department_code from courses where code="'.$_GET['cou'].'") and NVQ_level=(select NVQ_level from courses where code="'.$_GET['cou'].'") order by batch_no desc;';
   $result = mysqli_query($con, $query);
-  $output .= '<option selected disabled value="">Choose Batch</option>';
+  $output .= '<option selected disabled value="">Choose Stream</option>';
   while ($row = mysqli_fetch_array($result)) {
     $output .= '<option value="' . $row["id"] . '">' . $row["batch_no"] . '</option>';
   }
