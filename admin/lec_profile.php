@@ -12,7 +12,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
 }
 ?>
 <?php
-$title = "Academicyear | Online Examination Result Management System | SLGTI";
+$title = "Teacherprofile | Online Examination Result Management System | SLGTI";
 $description = "Online Examination Result  Management System (ERMS)-SLGTI";
 ?>
 <!DOCTYPE html>
@@ -74,7 +74,7 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                             <div class="col"> </div>
                             <div class="col-auto">
                                 <a href="lecturer.php?edit=<?php echo $id; ?> " class="btn btn-outline-info"> Edit </a>
-                                <a href="lecturers.php" class="btn btn-outline-primary">View lecturers</a>
+                                <a href="lecturers.php" class="btn btn-outline-primary">View teachers</a>
                             </div>
                         </div>
                         <div class="card-body ">
@@ -140,7 +140,7 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
 
                                                     <div class="row w3-text-grey w3-padding-10">
                                                         <div class="col">
-                                                            <label>Department</label>
+                                                            <label>Class</label>
                                                         </div>
                                                         <div class="col">
                                                             <p><?php echo ($row['department_code']); ?></p>
@@ -298,7 +298,7 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                                             </div>
                                     </div>
                                     <div class=" row p-3 mb-2 bg-primary text-white  h6">
-                                        <div class="col">Powered by Srinlanka German Training Institue</div>
+                                        <div class="col">Powered by Engineer Lubanjwa Francis</div>
                                         <div class="col-auto"> </div>
                                     </div>
                                     </footer>

@@ -279,9 +279,9 @@ This academic_year alredy submit
             <div class="card  mb-3" >
                 <div class="card-header ">
                 <div class="row">
-                <div class="col"><h4>Lecture</h4></div>
+                <div class="col"><h4>Teacher</h4></div>
                 <div class="col-auto">
-                <a href="lecturers.php" class="btn btn-outline-primary">Lecturers</a>
+                <a href="lecturers.php" class="btn btn-outline-primary">Teachers</a>
                 </div>
 
                 </div>
@@ -483,7 +483,7 @@ This academic_year alredy submit
                      </div>
                      <div class="col-sm">
                      <div class="form-group">
-                     Department  <br>
+                     Class  <br>
                      <div class="input-group input-group-sm mb-3">
   
                         <select class="custom-select" name="department" id="inputGroupSelect01"id="validationCustom04" required>
@@ -493,7 +493,7 @@ This academic_year alredy submit
                               ?>
                                                     <option selected value="<?php echo $department;?>">
                                                         <?php echo $department;?></option>
-                                                    <option disabled value="">Choose Department</option>
+                                                    <option disabled value="">Choose Class</option>
                                                     <?php
                             $result = $con->query("SELECT * FROM `departments` ");
                             while ($row = $result->fetch_assoc()) {
@@ -506,7 +506,7 @@ This academic_year alredy submit
                           else
                           {
                             ?>
-                                                    <option selected disabled value="">Choose Department</option>
+                                                    <option selected disabled value="">Choose Class</option>
                                                     <?php
                           $result = $con->query("SELECT * FROM `departments` ");
                           while ($row = $result->fetch_assoc()) {
@@ -548,21 +548,27 @@ This academic_year alredy submit
                         {
                             ?>
                             <option selected value="<?php echo $position;?>"><?php echo $position;?>  </option>
-                            <option disabled value="">Choose  Poisition  </option>
+                            <option disabled value="">Choose  Position  </option>
                             <option value="Admin">Admin</option>
-                            <option value="HOD">HOD </option>
-                            <option value="Lecturer">Lecturer</option>
+                            <option value="HM">HM</option>
+                            <option value="Secretory">Secretory</option>
+                            <option value="DOS">DOS </option>
+                            <option value="Teacher">Teacher</option>
                             <option value="Traniee">Traniee</option>
+                            <option value="Non-Teaching">Non-Teaching</option>
                             <?php
                         }
                         else
                         {
                              ?>
-                             <option selected disabled value="">Choose  Poisition  </option>
-                            <option value="Admin">Admin</option>
-                            <option value="HOD">HOD </option>
-                            <option value="Lecturer">Lecturer</option>
+                             <option selected disabled value="">Choose  Position  </option>
+                             <option value="Admin">Admin</option>
+                            <option value="HM">HM</option>
+                            <option value="Secretory">Secretory</option>
+                            <option value="DOS">DOS </option>
+                            <option value="Teacher">Teacher</option>
                             <option value="Traniee">Traniee</option>
+                            <option value="Non-Teaching">Non-Teaching</option>
                              <?php
                         }
                         ?>

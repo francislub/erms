@@ -264,7 +264,7 @@ This course alredy submit
 
                                         <div class="col-sm">
                                             <div class="form-group">
-                                                Course Name <br>
+                                                Subject Name <br>
                                                 <div class="form-group">
                                                     <div class="input-group input-group-sm mb-3">
 
@@ -277,7 +277,7 @@ This course alredy submit
                                                                 echo $courses;
                                                             } else {
                                                             ?>
-                                                                <option value="" selected disabled> select Course</option>
+                                                                <option value="" selected disabled> select Subject</option>
                                                                 <?php echo $courses; ?>
                                                             <?php
                                                             }
@@ -325,7 +325,7 @@ This course alredy submit
 
 
                                         <div class="col-sm">
-                                            Batch <br>
+                                            Stream <br>
                                             <div class="form-group">
                                                 <div class="input-group input-group-sm mb-3">
 
@@ -338,7 +338,7 @@ This course alredy submit
 
                                                         } else {
                                                         ?>
-                                                            <option value="" selected disabled> select Batch</option>
+                                                            <option value="" selected disabled> select Stream</option>
 
                                                         <?php
                                                         }
@@ -352,7 +352,7 @@ This course alredy submit
 
 
                                         <div class="col-sm">
-                                            Lecturer <br>
+                                            Teacher <br>
                                             <div class="form-group">
                                                 <div class="input-group input-group-sm mb-3">
 
@@ -365,7 +365,7 @@ This course alredy submit
  echo $lecturers;
                                                         } else {
                                                         ?>
-                                                            <option value="" selected disabled> select lecturer</option>
+                                                            <option value="" selected disabled> select Teacher</option>
 
                                                         <?php
                                                          echo $lecturers;
@@ -407,8 +407,8 @@ This course alredy submit
                     <thead class="p-3 mb-2 bg-primary text-white">
                         <tr>
                             <th scope="col">module</th>
-                            <th scope="col">batch</th>
-                            <th scope="col">lecturer</th>
+                            <th scope="col">Stream</th>
+                            <th scope="col">Teacher</th>
                             <th scope="col">Action</th>
 
                             <th scope="col">

@@ -20,7 +20,7 @@ if (isset($_GET['cou'])) {
     echo $_GET['cou'];
     $query = 'select * from batches where department_code=(select department_code from courses where code="'.$_GET['cou'].'") and NVQ_level=(select NVQ_level from courses where code="'.$_GET['cou'].'") order by batch_no desc;';
     $result = mysqli_query($con, $query);
-    $output .= '<option selected disabled value="">Choose Batch</option>';
+    $output .= '<option selected disabled value="">Choose Stream</option>';
     while ($row = mysqli_fetch_array($result)) {
       $output .= '<option value="' . $row["id"] . '">' . $row["batch_no"] . '</option>';
     }
@@ -34,7 +34,7 @@ if (isset($_GET['courses'])) {
     echo $_GET['courses'];
     $query = 'select * from lecturer';
     $result = mysqli_query($con, $query);
-    $output .= '<option selected disabled value="">Choose lecturer</option>';
+    $output .= '<option selected disabled value="">Choose Teacher</option>';
     while ($row = mysqli_fetch_array($result)) {
       $output .= '<option value="' . $row["id"] . '">' . $row["first_name"].$row["last_name"]." | "."<span class='badge badge-dark'>".$row["department_code"]."</span>". '</option>';
     }

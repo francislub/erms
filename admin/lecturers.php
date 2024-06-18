@@ -53,7 +53,7 @@ $result = $con->query("SELECT * FROM lecturer");
                 <div class="card border-secondary mb-3 ">
   <div class="card-header bg-transparent border-secondary">
 <div class="row">
-<div class="col"><h1> Lecturers </h1></div>
+<div class="col"><h1> Teachers </h1></div>
 <div class="col-auto">
 <a href="lecturer.php" class="btn btn-outline-primary">New</a>
 </div>
