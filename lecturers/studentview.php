@@ -259,9 +259,9 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
                                             <table class='table align-middle'>
                                                 <thead class='thead-light'>
                                                     <tr>
-                                                        <td scope='col'>Course</td>
-                                                        <td scope='col'>Batch</td>
-                                                        <td scope='col'>Course Mode</td>
+                                                        <td scope='col'>Class</td>
+                                                        <td scope='col'>Stream</td>
+                                                        <td scope='col'>Program Mode</td>
                                                         <td scope='col'>Status</td>
                                                         <td scope='col'>Enroll Date</td>
                                                         <td scope='col'>Exit Date</td>

@@ -13,7 +13,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
 }
 ?>
 <?php
-$title = "Courses | Online Examination Result Management System | SLGTI";
+$title = "Subjects | Online Examination Result Management System | SLGTI";
 $description = "Online Examination Result  Management System (ERMS)-SLGTI";
 ?>
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                     <div class="card-header ">
                         <div class="row">
                             <div class="col">
-                                <h4>Course</h4>
+                                <h4>Subject</h4>
                             </div>
                             <div class="col-auto">
                                
@@ -80,9 +80,9 @@ $description = "Online Examination Result  Management System (ERMS)-SLGTI";
                                             <thead class='bg-primary text-light'>
                                                 <tr>
                                                     <th scope='col'>code</th>
-                                                    <th scope='col'>name</th>
+                                                    <th scope='col'>Subject</th>
                                                     <th scope='col'>Level</th>
-                                                    <th scope='col'>Department</th>
+                                                    <th scope='col'>Class</th>
                                                     <th scope='col'>Action</th>
                                                 </tr>
 

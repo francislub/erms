@@ -7,7 +7,7 @@ if (isset($_POST["action"])) {
     echo $dep = $_POST["query"];
     $query = "SELECT * FROM courses WHERE department_code = '" . $_POST["query"] . "'";
     $result = mysqli_query($con, $query);
-    $output .= '<option value="" disabled selected>Select course </option>';
+    $output .= '<option value="" disabled selected>Select subject </option>';
     while ($row = mysqli_fetch_array($result)) {
       $output .= '<option value="' . $row["code"] . '">' . $row["name"] . '</option>';
     }
@@ -28,7 +28,7 @@ if (isset($_POST["action"])) {
           WHERE Academic_year = '" . $_POST["query"] . "'";
 
     $result = mysqli_query($con, $query);
-    $output .= '<option value="" disabled selected>Select Batch</option>';
+    $output .= '<option value="" disabled selected>Select Stream</option>';
     while ($row = mysqli_fetch_array($result)) {
       $output .= '<option value="' . $row["id"] . '">' . $row["NVQ_level"] . "-Batch-" . $row["batch_no"] . '</option>';
       

@@ -131,10 +131,10 @@ while ($row = mysqli_fetch_array($result)) {
 
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="form-group">
-                                            Department <br>
+                                            Class <br>
                                             <div class="input-group input-group-sm mb-3">
                                                 <select name="department" id="department" class="form-control action" required>
-                                                    <option value="" disabled selected>Select Department</option>
+                                                    <option value="" disabled selected>Select Class</option>
                                                     <?php echo $department; ?>
                                                 </select>
                                             </div>
@@ -144,10 +144,10 @@ while ($row = mysqli_fetch_array($result)) {
 
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="form-group">
-                                            Course <br>
+                                            Subject <br>
                                             <div class="input-group input-group-sm mb-3">
                                                 <select name="course" id="course" class="form-control action" required>
-                                                    <option value="" disabled selected>Select course</option>
+                                                    <option value="" disabled selected>Select Subject</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -189,12 +189,12 @@ while ($row = mysqli_fetch_array($result)) {
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="form-group">
-                                            Batch <br>
+                                            Stream <br>
                                             <div class="input-group input-group-sm mb-3">
 
                                                 <select class="custom-select" name="batch" id="batch" id="inputGroupSelect01" id="validationCustom04" required>
 
-                                                    <option value="" disabled selected>Select Batch</option>
+                                                    <option value="" disabled selected>Select Stream</option>
                                                 </select>
                                             </div>
                                         </div>

@@ -13,7 +13,7 @@ if (isset($_GET['logout']) && isset($_SESSION['username']) ) {
 }
 ?>
 <?php
-$title = "Add Department | Online Examination Result Management System | SLGTI";
+$title = "Modules | Online Examination Result Management System | SLGTI";
 $description = "Online Examination Result  Management System (ERMS)-SLGTI";
 ?>
 <!DOCTYPE html>
@@ -77,9 +77,9 @@ if(isset($_GET['delete'])){
                         <thead class='bg-primary text-light'>
                             <tr class="h6">
                                 <th scope='col'>code</th>
-                                <th scope='col'>Name</th>
-                                <th scope='col'>Semester_Id</th>
-                                <th scope='col'>Course_Name</th>
+                                <th scope='col'>Module</th>
+                                <th scope='col'>Term</th>
+                                <th scope='col'>Subject</th>
                                 <th scope='col'></th>
 
                             </tr>
